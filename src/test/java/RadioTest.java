@@ -1,0 +1,56 @@
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class RadioTest {
+
+    @Test
+
+    public void testStationUp() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(9);
+        radio.next();
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+
+    public void testStationDown() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(3);
+        radio.prev();
+
+        int expected = 2;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void testVolumeDown() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(5);
+        radio.decreaseVolume();
+
+        int expected = 4;
+        int actual = radio.getCurrentVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testVolumeUp() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(10);
+        radio.increaseVolume();
+
+        int expected = 10;
+        int actual = radio.getCurrentVolume();
+        Assertions.assertEquals(expected, actual);
+    }
+}
